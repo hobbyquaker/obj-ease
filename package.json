@@ -15,5 +15,13 @@
     "test": "gulp test"
   },
   "author": "Sebastian Raff <hq@ccu.io> https://github.com/hobbyquaker",
-  "license": "MIT"
+  "license": "MIT",
+  "keywords": [
+    "object",
+    "dot",
+    "properties",
+    "extend",
+    "clone",
+    "compare"
+  ]
 }
