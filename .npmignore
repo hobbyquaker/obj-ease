@@ -1,0 +1,8 @@
+/tests/
+/bechmarks/
+/examples/
+.gitignore
+.idea
+npm-debug.log
+.DS_Store
+bower.json

@@ -1,0 +1,34 @@
+{
+  "name": "obj-ease",
+  "main": "index.js",
+  "version": "0.0.1",
+  "authors": [
+    "Sebastian Raff <hq@ccu.io>"
+  ],
+  "description": "handle javascript objects with ease",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "object",
+    "dot",
+    "properties",
+    "extend",
+    "clone",
+    "compare"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/hobbyquaker/obj-ease",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "examples",
+    "benchmarks",
+    "tests",
+    "gulpfile.js",
+    "package.json"
+  ]
+}
