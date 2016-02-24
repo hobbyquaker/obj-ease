@@ -31,7 +31,29 @@ describe('extend(that, obj)', function () {
 
     });
 
-    var res = oe.extend(obj1, obj2)
+    it('should return undefined when nothing changes', function () {
+        var obj1 = {a: [0.5, 0.7]};
+        var tmp = oe.extend(obj1, {a: [0.5, 0.7]});
+        should.equal(tmp, undefined);
+    });
+
+
+    it('should return undefined when nothing changes', function () {
+        var obj1 = {a: {b: {c: [0.5, 0.7]}}};
+        var tmp = oe.extend(obj1, {a: {b: {c: [0.5, 0.7]}}});
+        should.equal(tmp, undefined);
+    });
+
+    it('should return an object containing the changed properties', function () {
+        var obj1 = {a: {b: {c: [0.5, 0.7]}}};
+        var tmp = oe.extend(obj1, {a: {b: {c: [0.5, 0.8]}}});
+        tmp.should.have.properties({
+            a: {b: {c: [0.5, 0.8]}}
+        });
+    });
+
+
+    var res = oe.extend(obj1, obj2);
 
 
     it('should return an object containing the changed properties', function () {
@@ -39,6 +61,10 @@ describe('extend(that, obj)', function () {
             c: {e: 5, f: 6}
         });
     });
+
+
+
+
 
     it('should return an object not containing the unchanged properties', function () {
         should.equal(res.a, undefined);
@@ -57,6 +83,7 @@ describe('extend(that, obj)', function () {
             }
         });
     });
+
 
 
 
