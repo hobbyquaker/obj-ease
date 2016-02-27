@@ -262,12 +262,22 @@
          * extend that by obj. observes if a change happens while extending
          * @param {Object} that
          * @param {Object} obj
+         * @param {Object} options
          * @returns {undefined|Object} undefined if no change happened - otherwise an object containing the changes is returned
          */
         extend: function extend(that, obj) {
-            var res = {};
+            var res;
             var type = typeof obj;
 
+            if (type === 'object' && obj instanceof Array) {
+                if (typeof that === 'object' && that instanceof Array) {
+                    this.equal(that, obj) ? res = [] : res = that;
+                } else {
+                    res = [];
+                }
+            } else if (type === 'object') {
+                res = {};
+            }
             Object.keys(obj).forEach(function (key) {
                 switch (typeof obj[key]) {
                     case 'string':
@@ -293,10 +303,14 @@
                                 res[key] = new Buffer(obj[key]);
                             }
                         } else if (obj[key] instanceof Array) {
+
                             if (typeof that[key] !== 'object' || (!(that[key] instanceof Array))) {
+
                                 res[key] = that[key] = [];
                             }
                             res[key] = objease.extend(that[key], obj[key]);
+                            if (res[key] === undefined) delete res[key];
+
                         } else {
                             if (typeof that[key] !== 'object') {
                                 res[key] = that[key] = {};
