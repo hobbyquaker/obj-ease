@@ -43,17 +43,6 @@ describe('equal(obj1, obj2)', function () {
 
     });
 
-    it('should return true on equal objects', function () {
-
-        oe.equal({}, {}).should.eql(true);
-        oe.equal({a:1}, {a:1}).should.eql(true);
-        oe.equal({a:1,b:2,c:3}, {a:1,c:3,b:2}).should.eql(true);
-        oe.equal({a:{b:{c:1}}}, {a:{b:{c:1}}}).should.eql(true);
-        oe.equal({a:{b:{c:null}}}, {a:{b:{c:null}}}).should.eql(true);
-
-    });
-
-
     it('should return true on equal Buffers', function () {
 
         oe.equal(new Buffer(''), new Buffer('')).should.eql(true);
@@ -70,6 +59,21 @@ describe('equal(obj1, obj2)', function () {
 
     });
 
+    it('should return true on equal objects', function () {
+
+        oe.equal({}, {}).should.eql(true);
+        oe.equal({a:1}, {a:1}).should.eql(true);
+        oe.equal({a:1,b:2,c:3}, {a:1,c:3,b:2}).should.eql(true);
+        oe.equal({a:{b:{c:1}}}, {a:{b:{c:1}}}).should.eql(true);
+        oe.equal({a:{b:{c:null}}}, {a:{b:{c:null}}}).should.eql(true);
+        oe.equal({a:{b:{c:[1,2,3]}}}, {a:{b:{c:[1,2,3]}}}).should.eql(true);
+        oe.equal({a:{b:{c:new Buffer([1,2,3])}}}, {a:{b:{c:new Buffer([1,2,3])}}}).should.eql(true);
+
+    });
+
+
+
+
     it('should return false on non-equal objects', function () {
 
         oe.equal({}, {a:1}).should.eql(false);
@@ -77,6 +81,9 @@ describe('equal(obj1, obj2)', function () {
         oe.equal({a:{b:{c:1}}}, {a:{b:{d:1}}}).should.eql(false);
         oe.equal({a:{b:{c:1}}}, {a:{b:{c:1,d:2}}}).should.eql(false);
         oe.equal({a:{b:{c:null}}}, {a:{b:{c:undefined}}}).should.eql(false);
+        oe.equal({a:{b:{c:[1,2,3]}}}, {a:{b:{c:[1,2]}}}).should.eql(false);
+        oe.equal({a:{b:{c:new Buffer([1,2,3])}}}, {a:{b:{c:new Buffer([1,2,4])}}}).should.eql(false);
+        oe.equal({a:{b:{c:new Buffer([1,2,3])}}}, {a:{b:{c:new Buffer([1,2])}}}).should.eql(false);
 
     });
 
