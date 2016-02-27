@@ -1,7 +1,7 @@
 {
   "name": "obj-ease",
   "description": "handle javascript objects with ease",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "index.js",
   "devDependencies": {
     "assert": "^1.3.0",

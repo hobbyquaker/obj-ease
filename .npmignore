@@ -6,3 +6,4 @@
 npm-debug.log
 .DS_Store
 bower.json
+.travis.yml

@@ -1,7 +1,7 @@
 {
   "name": "obj-ease",
   "main": "index.js",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "authors": [
     "Sebastian Raff <hq@ccu.io>"
   ],
