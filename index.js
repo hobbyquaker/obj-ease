@@ -59,18 +59,20 @@
         split: function split(str) {
             str = '' + str;
 
+            // use native split if possible
             if (str.indexOf('\\') === -1) return str.split('.');
 
-            var res = [];
-            var pos = 0;
-            var esc;
+            var res = []; // the result array
+            var pos = 0;  // starting position of current chunk
 
             function chunk(start, end) {
-                // slice, unescape and push onto result array. set position of next chunk.
+                // slice, unescape and push onto result array.
                 res.push(str.slice(start, end).replace(/\\\\/g, '\\').replace(/\\\./g, '.'));
+                // set starting position of next chunk.
                 pos = end + 1;
             }
 
+            var esc; // boolean indicating if a dot is escaped
             var j;
             for (var i = 0, l = str.length; i < l; i++) {
                 if (str[i] === '.') {
