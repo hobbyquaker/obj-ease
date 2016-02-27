@@ -59,7 +59,7 @@
         split: function split(str) {
             str = '' + str;
 
-            if (str.indexOf('\\.') === -1) return str.split('.');
+            if (str.indexOf('\\') === -1) return str.split('.');
 
             var res = [];
             var pos = 0;

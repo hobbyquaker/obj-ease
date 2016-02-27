@@ -26,4 +26,8 @@ describe('split(str)', function () {
         oe.split('a\\\\.b.c.d.e\\.e.f.g.h\\.h').should.eql(['a\\', 'b', 'c', 'd', 'e.e', 'f', 'g', 'h.h']);
         oe.split('\\\\a\\\\.b.c.d.e\\.e.f.g.h\\.h\\\\').should.eql(['\\a\\', 'b', 'c', 'd', 'e.e', 'f', 'g', 'h.h\\']);
     });
+    it('should do unescaping', function () {
+        oe.split('a\\\\a.bb').should.eql(['a\\a', 'bb']);
+        oe.split('a\\\\a.b\\.b').should.eql(['a\\a', 'b.b']);
+    });
 });
