@@ -1,6 +1,14 @@
 # obj-ease
 
-[![Build Status](https://travis-ci.org/hobbyquaker/obj-ease.svg?branch=master)](https://travis-ci.org/hobbyquaker/obj-ease) [![NPM version](https://badge.fury.io/js/obj-ease.svg)](http://badge.fury.io/js/obj-ease)
+[![NPM version](https://badge.fury.io/js/obj-ease.svg)](http://badge.fury.io/js/obj-ease)
+[![Dependency Status](https://img.shields.io/gemnasium/hobbyquaker/obj-ease.svg?maxAge=2592000)](https://gemnasium.com/github.com/hobbyquaker/obj-ease)
+[![Build Status](https://travis-ci.org/hobbyquaker/obj-ease.svg?branch=master)](https://travis-ci.org/hobbyquaker/obj-ease)
+[![Coverage Status](https://coveralls.io/repos/github/hobbyquaker/obj-ease/badge.svg?branch=master)](https://coveralls.io/github/hobbyquaker/obj-ease?branch=master)
+[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
+[![License][mit-badge]][mit-url]
+
+[mit-badge]: https://img.shields.io/badge/License-MIT-blue.svg?style=flat
+[mit-url]: LICENSE
 
 > handle javascript objects with ease :surfer:
 
