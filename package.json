@@ -1,23 +1,29 @@
 {
   "name": "obj-ease",
   "description": "handle javascript objects with ease",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "main": "index.js",
   "devDependencies": {
     "assert": "latest",
+    "camo-purge": "latest",
+    "coveralls": "latest",
     "gulp": "latest",
     "gulp-bench": "latest",
-    "gulp-mocha": "latest",
-    "gulp-xo": "latest",
     "jsdoc-to-markdown": "latest",
     "mocha": "latest",
-    "should": "latest"
+    "nyc": "latest",
+    "should": "latest",
+    "xo": "latest"
   },
   "scripts": {
-    "test": "gulp test"
+    "test": "camo-purge ; xo --space 4 --no-esnext --ignore=gulpfile.js --ignore=tests/* --ignore=benchmarks/* --ignore=examples/* && node_modules/.bin/nyc --exclude=tests/* node_modules/.bin/mocha tests/*.js && node_modules/.bin/nyc report --reporter=text-lcov | node_modules/.bin/coveralls --force"
   },
   "author": "Sebastian Raff <hq@ccu.io> https://github.com/hobbyquaker",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hobbyquaker/obj-ease.git"
+  },
   "keywords": [
     "object",
     "dot",
