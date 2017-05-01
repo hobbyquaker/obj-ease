@@ -28,6 +28,6 @@
   ],
   "xo": {
     "space": 4,
-    "exnext": false
+    "esnext": false
   }
 }
