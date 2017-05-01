@@ -76,6 +76,7 @@ describe('equal(obj1, obj2)', function () {
 
     it('should return false on non-equal objects', function () {
 
+        oe.equal(null, {a:1}).should.eql(false);
         oe.equal({}, {a:1}).should.eql(false);
         oe.equal({a:1}, {a:2}).should.eql(false);
         oe.equal({a:{b:{c:1}}}, {a:{b:{d:1}}}).should.eql(false);
