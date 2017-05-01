@@ -50,6 +50,22 @@ describe('setProp(obj, prop)', function () {
         });
     });
 
+    it('should create a property', function () {
+        oe.setProp(obj, 'b', {aa: {bbb: 'test3'}}).should.eql(true);
+        obj.should.have.properties({
+            a: {
+                aa: {
+                    aaa: 'test2'
+                }
+            },
+            b: {
+                aa: {
+                    bbb: 'test3'
+                }
+            }
+        });
+    });
+
 
     it('should return true and create nested properties', function () {
         var obj2 = {b:1};
@@ -92,6 +108,12 @@ describe('setProp(obj, prop)', function () {
     it('should throw an error if obj is not of type object', function () {
         (function () {
             oe.setProp(null, 'a.aa.aaa', null)
+        }).should.throw();
+    });
+
+    it('should throw an error if obj is not of type object', function () {
+        (function () {
+            oe.setProp(100, 'a.aa.aaa', null)
         }).should.throw();
     });
 
