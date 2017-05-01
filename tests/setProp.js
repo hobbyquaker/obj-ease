@@ -89,6 +89,11 @@ describe('setProp(obj, prop)', function () {
         });
     });
 
+    it('should throw an error if obj is not of type object', function () {
+        (function () {
+            oe.setProp(null, 'a.aa.aaa', null)
+        }).should.throw();
+    });
 
 
 });
