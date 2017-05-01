@@ -252,7 +252,6 @@ extend that by obj. observes if a change happens while extending(that, obj) ⇒ 
 * Better Readme
 * optimize get/set/delProp performance by integrated split method (could break prop string loop earlier)
 * Auto-generate markdown from jsdoc and insert into Readme
-* jshint?, idea?
 * More and better benchmarks
 
 

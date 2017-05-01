@@ -1,6 +1,7 @@
 /tests/
 /bechmarks/
 /examples/
+/dist/
 .gitignore
 .idea
 npm-debug.log

@@ -22,3 +22,11 @@ gulp.task('docs', function () {
     output += fs.readFileSync('doc/README.footer.md');
     fs.writeFileSync('README.md', output)
 });
+
+const xo = require('gulp-xo');
+
+gulp.task('xo', function () {
+    gulp.src('index.js')
+        .pipe(xo())
+        .pipe(gulp.dest('dist'))
+});

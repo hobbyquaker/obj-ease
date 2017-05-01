@@ -8,6 +8,7 @@
     "gulp": "latest",
     "gulp-bench": "latest",
     "gulp-mocha": "latest",
+    "gulp-xo": "latest",
     "jsdoc-to-markdown": "latest",
     "mocha": "latest",
     "should": "latest"
@@ -24,5 +25,9 @@
     "extend",
     "clone",
     "compare"
-  ]
+  ],
+  "xo": {
+    "space": 4,
+    "exnext": false
+  }
 }
