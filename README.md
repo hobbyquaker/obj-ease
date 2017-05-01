@@ -11,7 +11,10 @@ get/set/delete properties by dot-notation, clone, extend and compare objects.
 
 > Why reinvent the wheel? There are more than enough modules solving the same problems!
 
-Most of the implementations I found didn't suite my needs at 100% (e.g. useful return values, see below) and this module has also some educational purpose - I want to improve my js skills, so I would be glad and thankful to hear your opinion and critics on this implementation or - even better - get some pull requests that help to optimize performance, function, tooling, style and documentation of this module.
+Most of the implementations I found didn't suite my needs at 100% (e.g. useful return values, see below) and this module 
+has also some educational purpose - I want to improve my js skills, so I would be glad and thankful to hear your opinion 
+and critics on this implementation or - even better - get some pull requests that help to optimize performance, 
+function, tooling, style and documentation of this module.
 
 
 ## Usage Examples
@@ -48,8 +51,11 @@ console.log(obj1); // { a: {} }
 
 setProp tells you if it really did a change on the object. So ```oe.setProp({a:1}, 'a', 1)``` will return false and ```oe.setProp({a:1}, 'a', 2)``` will return true. 
 
+
 #### extend
+
 extend returns an object containing all properties that changed on the target or undefined if no change happened. So ```oe.extend({a: {b: {x: 1, y: 2}}}, {a: {b: {x: 1, y: 3}}})``` will return ```{ a: { b: { y: 3 } } }```
+
 
 ### alternative usage on objects
 
@@ -85,31 +91,155 @@ This module works with Array and Buffer objects too.
 
 Until now it can not handle Function objects (see Todo). Handling of Date and RegExp objects is untested also.
 
-## Methods
 
-* *mixed* **getProp(** *Object* **obj,** *String* **prop )**
+## API
+## Classes
 
-returns the properties value or undefined.
+<dl>
+<dt><a href="#objease">objease</a></dt>
+<dd></dd>
+</dl>
 
-* *Boolean* **setProp(** *Object* **obj,** *String* **prop,** *mixed* **val )**
+## Functions
 
-returns true if a change on `obj` happened, false otherwise.
+<dl>
+<dt><a href="#attach
+extends an object (prototype) with the obj-ease functions (non-enumerable)">attach
+extends an object (prototype) with the obj-ease functions (non-enumerable)(obj)</a></dt>
+<dd></dd>
+<dt><a href="#split
+Split str by . - supports backslash escaped delimiters">split
+Split str by . - supports backslash escaped delimiters(str)</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
+<dd></dd>
+<dt><a href="#delProp
+delete an objects property. supports nested properties through dot-notation, dots may be escaped by backslash.">delProp
+delete an objects property. supports nested properties through dot-notation, dots may be escaped by backslash.(obj, prop)</a> ⇒ <code>boolean</code></dt>
+<dd></dd>
+<dt><a href="#setProp
+set an objects property. supports nested properties through dot-notation, dots may be escaped by backslash.">setProp
+set an objects property. supports nested properties through dot-notation, dots may be escaped by backslash.(obj, prop, val)</a> ⇒ <code>boolean</code></dt>
+<dd></dd>
+<dt><a href="#getProp
+get an objects property. supports nested properties through dot-notation, dots may be escaped by backslash">getProp
+get an objects property. supports nested properties through dot-notation, dots may be escaped by backslash(obj, prop)</a> ⇒ <code>all</code></dt>
+<dd></dd>
+<dt><a href="#equal
+compare objects by value">equal
+compare objects by value(obj1, obj2)</a> ⇒ <code>boolean</code></dt>
+<dd></dd>
+<dt><a href="#clone
+clone obj">clone
+clone obj(obj)</a> ⇒ <code>Object</code> | <code>Array</code></dt>
+<dd></dd>
+<dt><a href="#extend
+extend that by obj. observes if a change happens while extending">extend
+extend that by obj. observes if a change happens while extending(that, obj)</a> ⇒ <code>undefined</code> | <code>Object</code></dt>
+<dd></dd>
+</dl>
 
-* *Boolean* **delProp**( *Object* **obj,** *String* **prop )**
+<a name="objease"></a>
 
-returns true if a change on `obj` happened, false otherwise.
+## objease
+**Kind**: global class  
+<a name="attach
+extends an object (prototype) with the obj-ease functions (non-enumerable)"></a>
 
-* *Object* **clone(** *Object* **obj )**
+## attach
+extends an object (prototype) with the obj-ease functions (non-enumerable)(obj)
+**Kind**: global function  
 
-returns a clone of `obj`.
+| Param | Type | Description |
+| --- | --- | --- |
+| obj | <code>object</code> | object to extend |
 
-* *mixed* **extend(** *Object* **that**, *Object* **obj** )
+<a name="split
+Split str by . - supports backslash escaped delimiters"></a>
 
-returns an object containing all changed properties or undefined if no change on `that` happened.
+## split
+Split str by . - supports backslash escaped delimiters(str) ⇒ <code>Array.&lt;string&gt;</code>
+**Kind**: global function  
 
-* *Boolean* **equal(** *Object* **that,** *Object* **obj )**
+| Param | Type |
+| --- | --- |
+| str | <code>string</code> | 
 
-returns true if `that` and `obj` are equal (comparison is done recursively with strict equality).
+<a name="delProp
+delete an objects property. supports nested properties through dot-notation, dots may be escaped by backslash."></a>
+
+## delProp
+delete an objects property. supports nested properties through dot-notation, dots may be escaped by backslash.(obj, prop) ⇒ <code>boolean</code>
+**Kind**: global function  
+**Returns**: <code>boolean</code> - - true if property was found and deleted  
+
+| Param | Type |
+| --- | --- |
+| obj | <code>Object</code> | 
+| prop | <code>string</code> | 
+
+<a name="setProp
+set an objects property. supports nested properties through dot-notation, dots may be escaped by backslash."></a>
+
+## setProp
+set an objects property. supports nested properties through dot-notation, dots may be escaped by backslash.(obj, prop, val) ⇒ <code>boolean</code>
+**Kind**: global function  
+**Returns**: <code>boolean</code> - - true if a change on obj happened  
+
+| Param | Type |
+| --- | --- |
+| obj | <code>Object</code> | 
+| prop | <code>string</code> | 
+| val | <code>all</code> | 
+
+<a name="getProp
+get an objects property. supports nested properties through dot-notation, dots may be escaped by backslash"></a>
+
+## getProp
+get an objects property. supports nested properties through dot-notation, dots may be escaped by backslash(obj, prop) ⇒ <code>all</code>
+**Kind**: global function  
+**Returns**: <code>all</code> - the properties value or undefined  
+
+| Param | Type |
+| --- | --- |
+| obj | <code>Object</code> | 
+| prop | <code>string</code> | 
+
+<a name="equal
+compare objects by value"></a>
+
+## equal
+compare objects by value(obj1, obj2) ⇒ <code>boolean</code>
+**Kind**: global function  
+**Returns**: <code>boolean</code> - true if both objects are equal  
+
+| Param | Type |
+| --- | --- |
+| obj1 | <code>object</code> | 
+| obj2 | <code>object</code> | 
+
+<a name="clone
+clone obj"></a>
+
+## clone
+clone obj(obj) ⇒ <code>Object</code> \| <code>Array</code>
+**Kind**: global function  
+**Returns**: <code>Object</code> \| <code>Array</code> - the cloned object  
+
+| Param | Type |
+| --- | --- |
+| obj | <code>Object</code> \| <code>Array</code> | 
+
+<a name="extend
+extend that by obj. observes if a change happens while extending"></a>
+
+## extend
+extend that by obj. observes if a change happens while extending(that, obj) ⇒ <code>undefined</code> \| <code>Object</code>
+**Kind**: global function  
+**Returns**: <code>undefined</code> \| <code>Object</code> - undefined if no change happened - otherwise an object containing the changes is returned  
+
+| Param | Type |
+| --- | --- |
+| that | <code>Object</code> | 
+| obj | <code>Object</code> | 
 
 
 ## Todo
@@ -123,7 +253,6 @@ returns true if `that` and `obj` are equal (comparison is done recursively with 
 * optimize get/set/delProp performance by integrated split method (could break prop string loop earlier)
 * Auto-generate markdown from jsdoc and insert into Readme
 * jshint?, idea?
-* Auto-generate markdown from benchmark results and insert into Readme
 * More and better benchmarks
 
 

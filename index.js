@@ -8,10 +8,14 @@
     // dummy-polyfill for non-nodejs environments
     if (typeof Buffer === 'undefined') Buffer = function () {}; // implicitly by intention
 
+    /**
+     * @Class objease
+     * */
     var objease = {
         /**
+         * @method attach
          * extends an object (prototype) with the obj-ease functions (non-enumerable)
-         * @param obj
+         * @param {object} obj object to extend
          */
         attach: function attach(obj) {
             Object.defineProperty(obj, 'getProp', {
@@ -52,6 +56,7 @@
             });
         },
         /**
+         * @method split
          * Split str by '.' - supports backslash escaped delimiters
          * @param {string} str
          * @returns {Array.<string>}
@@ -89,6 +94,7 @@
             return res;
         },
         /**
+         * @method delProp
          * delete an objects property. supports nested properties through dot-notation, dots may be escaped by backslash.
          * @param {Object} obj
          * @param {string} prop
@@ -113,6 +119,7 @@
             return changed;
         },
         /**
+         * @method setProp
          * set an objects property. supports nested properties through dot-notation, dots may be escaped by backslash.
          * @param {Object} obj
          * @param {string} prop
@@ -163,6 +170,7 @@
             return changed;
         },
         /**
+         * @method getProp
          * get an objects property. supports nested properties through dot-notation, dots may be escaped by backslash
          * @param {Object} obj
          * @param {string} prop
@@ -185,6 +193,7 @@
             return res;
         },
         /**
+         * @method equal
          * compare objects by value
          * @param {object} obj1
          * @param {object} obj2
@@ -246,6 +255,7 @@
 
         },
         /**
+         * @method clone
          * clone obj
          * @param {Object|Array} obj
          * @returns {Object|Array} the cloned object
@@ -261,10 +271,10 @@
             return tmp;
         },
         /**
+         * @method extend
          * extend that by obj. observes if a change happens while extending
          * @param {Object} that
          * @param {Object} obj
-         * @param {Object} options
          * @returns {undefined|Object} undefined if no change happened - otherwise an object containing the changes is returned
          */
         extend: function extend(that, obj) {
