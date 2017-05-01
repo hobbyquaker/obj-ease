@@ -22,4 +22,7 @@ describe('attach', function () {
     it('should have the equal method', function () {
         db.equal({'foo': 'bar'}).should.equal(true);
     });
+    it('should have the clone method', function () {
+        db.clone({'foo': 'bar'}).should.deepEqual({'foo': 'bar'});
+    });
 });
